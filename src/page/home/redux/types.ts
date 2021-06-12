@@ -1,0 +1,1 @@
+export const SET_ALLOWED_ENUMS = "SET_ALLOWED_ENUMS";

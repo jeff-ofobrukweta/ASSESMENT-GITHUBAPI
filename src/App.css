@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+}
+.top-barner {
+  padding: 2.5rem;
+  border-bottom: 1px solid #c9d1d930;
+}
+.top-barner .trends-header {
+  color: var(--header-color);
+  font-weight: 600;
+}
+.top-barner .trends-text {
+  font-size: 16px;
+  color: var(--dark-mode-font-color);
+}

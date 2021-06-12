@@ -1,0 +1,40 @@
+.card-wrapper {
+  padding: 2.5rem;
+  max-width: 65rem;
+  margin: 0 auto;
+}
+
+.dropdown-links {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 700px) {
+  .card-wrapper {
+    padding: 1rem;
+  }
+
+  .dropdown-links {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .btn-link {
+    display: inline-block;
+    padding: 0;
+    font-size: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 0;
+    padding-right: 15px;
+    padding-left: 0px;
+  }
+}

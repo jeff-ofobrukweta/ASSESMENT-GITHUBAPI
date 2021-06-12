@@ -1,0 +1,105 @@
+.repo-mini-card {
+  border-bottom: 1px solid #c9d1d930;
+  padding: 10px;
+  text-align: left;
+}
+.mini-card:last-child {
+  border-bottom: none;
+}
+
+/* octicon is the book icon */
+
+.repo-octicon {
+  margin-right: 4px;
+  display: inline-block;
+  overflow: visible;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.condensed-header-main-wrapper {
+  line-height: 1.25;
+  font-size: 1.2rem;
+}
+
+.footer-main-card-mt-2 {
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+.d-inline-block {
+  display: inline-block;
+  margin-right: 16px;
+}
+
+.d-img-inline-block {
+  display: inline-block;
+  margin-right: 5px;
+}
+.float-sm-right {
+  margin-right: 0px;
+}
+/* btn font weight */
+.d-none {
+  font-weight: 500;
+}
+
+.avatar-user {
+  border-radius: 100%;
+}
+.avatar {
+  display: inline-block;
+  overflow: hidden;
+  line-height: 1;
+  vertical-align: middle;
+  background-color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px #00000000;
+  margin-bottom: 4px;
+}
+
+.section-top-layer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer-main-card-mt-2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+/* btn style */
+
+.btn-sm {
+  padding: 3px 12px;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.btn {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid;
+  border-radius: 6px;
+  appearance: none;
+  color: #24292e;
+  background-color: #30363d;
+  color: var(--dark-mode-font-color);
+  border-color: #1b1f2326;
+  box-shadow: var(--color-btn-shadow), var(--color-btn-inset-shadow);
+  transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  transition-property: color, background-color, border-color;
+}
+
+@media only screen and (max-width: 700px) {
+  .condensed-header-main-wrapper {
+    line-height: 1.25;
+    font-size: 0.98rem;
+  }
+}
