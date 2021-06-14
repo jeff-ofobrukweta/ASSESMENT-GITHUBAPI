@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { DEVELOPERS } from "../../routes/constant";
 import "./dropdown.css";
 const Dropdown = (props: any) => {
-  console.log(props);
 
   const [filteredArray, setfilteredArray] = useState(props.data);
 
