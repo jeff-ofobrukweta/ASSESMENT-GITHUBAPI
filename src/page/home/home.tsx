@@ -83,7 +83,7 @@ const Home = ({ match }: any) => {
                 <ListCardRepository {...item} key={index} />
               ))}
 
-            {isSuccess && data && data.length <= 1 && (
+            {isSuccess && data && data.length < 1 && (
               <div>There are no availiable data for this search</div>
             )}
 
