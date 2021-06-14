@@ -83,16 +83,16 @@ const Home = ({ match }: any) => {
                 <ListCardRepository {...item} key={index} />
               ))}
 
-            {isSuccess && data && data.length < 1 && (
-              <div>There are no availiable data for this search</div>
-            )}
-
             {/* on-successful state for  developers from react-query */}
             {isSuccess &&
               match.path.includes(DEVELOPERS) &&
               data?.map((item: any, index: any) => (
                 <ListCardDevelopers {...item} key={index} />
               ))}
+
+            {isSuccess && data && data.length < 1 && (
+              <div>There are no availiable data for this search</div>
+            )}
 
             {isError && (
               <div className="error">
