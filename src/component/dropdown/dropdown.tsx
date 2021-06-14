@@ -8,7 +8,7 @@ const Dropdown = (props: any) => {
   const [is_dialogue_open, setIs_dialogue_open] = useState(false);
 
   useEffect(() => {
-    setfilteredArray(props.data);
+    setfilteredArray([...props.data]);
   }, [props.data]);
   
 
