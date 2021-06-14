@@ -6,13 +6,14 @@ import { useLocation } from "react-router";
 import request from "../../api.service/axios.factory";
 import { DEVELOPERS } from "../../routes/constant";
 import "./home.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { Ideveloper, Ipopular_repository, IqueryReactOption } from "./home.td";
 import { getDevelopers, getReposirories } from "../../utility/github";
 
 const Home = ({ match }: any) => {
   const queryCli = useQueryClient();
+
 
   const useQueryParams = () => {
     return new URLSearchParams(useLocation().search);
@@ -21,14 +22,16 @@ const Home = ({ match }: any) => {
   const query = useQueryParams();
 
   const apiFunction = async () => {
-    const { data } = await request<Ideveloper<Ipopular_repository>[]>(
-      "GET",
-      match.path.includes(DEVELOPERS)
-        ? getDevelopers(match, query)
-        : getReposirories(match, query),
-      ""
-    );
-    return data;
+    try {
+      const { data } = await request<Ideveloper<Ipopular_repository>[]>(
+        "GET",
+        match.path.includes(DEVELOPERS)
+          ? getDevelopers(match, query)
+          : getReposirories(match, query),
+        ""
+      );
+      return data;
+    } catch (err) {throw new Error(err)}
   };
 
   const since = query.get("since");
@@ -39,7 +42,6 @@ const Home = ({ match }: any) => {
   );
 
   useEffect(() => {
-    // queryCli.invalidateQueries("dev");
     try {
       const getRouteFromApi = async () => {
         const { data } = await request(

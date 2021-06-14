@@ -48,7 +48,8 @@ const Card = (props: any) => {
             </Link>
           </nav>
           <div className="dropdown-links">
-            {props?.path?.includes(DEVELOPERS) === false && (
+            {
+            !props?.path?.includes(DEVELOPERS) && (
               <span>
                 <Dropdown
                   type="spoken-lang"
