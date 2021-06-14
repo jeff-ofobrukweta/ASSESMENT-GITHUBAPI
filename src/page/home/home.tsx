@@ -39,11 +39,16 @@ const Home = ({ match }: any) => {
   const lang = query.get("spoken_language_code");
   const { data, isLoading, isError, isSuccess }: IqueryReactOption = useQuery(
     "dev",
-    apiFunction
+    apiFunction,
+    {
+      staleTime: 60 * 1000, // 1 minute
+      cacheTime: 60 * 1000 * 10, // 10 minutes
+    }
   );
 
   useEffect(() => {
     try {
+      queryCli.setQueryData(["dev"], []);
       const getRouteFromApi = async () => {
         const { data } = await request(
           "GET",
@@ -68,7 +73,7 @@ const Home = ({ match }: any) => {
         <div className="card-wrapper">
           <Card {...match}>
             {/* is loading state from react-query */}
-            {isLoading && (
+            {isLoading && data && (
               <div className="loading">
                 <section className="on-success-is-loading-state">
                   Loading
@@ -90,14 +95,14 @@ const Home = ({ match }: any) => {
                 <ListCardDevelopers {...item} key={index} />
               ))}
 
-            {isSuccess && data && data.length < 1 && (
-              <div>There are no availiable data for this search</div>
-            )}
-
             {isError && (
               <div className="error">
                 <div className="error-state">error trying to load data</div>
               </div>
+            )}
+
+            {isSuccess && data && data.length < 1 && (
+              <div>There are no availiable data for this search</div>
             )}
           </Card>
         </div>

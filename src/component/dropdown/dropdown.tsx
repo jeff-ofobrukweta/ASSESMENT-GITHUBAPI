@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { DEVELOPERS } from "../../routes/constant";
 import "./dropdown.css";
 const Dropdown = (props: any) => {
+  console.log(props);
+
   const [filteredArray, setfilteredArray] = useState(props.data);
 
   const [is_dialogue_open, setIs_dialogue_open] = useState(false);
@@ -32,7 +34,11 @@ const Dropdown = (props: any) => {
   };
   return (
     <>
-      <details className="details-option" open={is_dialogue_open}>
+      <details
+        className="details-option"
+        onClick={() => setIs_dialogue_open(!is_dialogue_open)}
+        open={is_dialogue_open}
+      >
         {is_dialogue_open}
         <summary className=" btn-link" role="button">
           <span className="txt-inner-opt">{props.headerText || "Any"}:</span>
@@ -52,7 +58,7 @@ const Dropdown = (props: any) => {
           )}
           <div
             className="select-menu-list"
-            onClick={() => setIs_dialogue_open(false)}
+            onClick={() => setIs_dialogue_open(!is_dialogue_open)}
           >
             {filteredArray?.length ? (
               filteredArray.map((item: any, index: any) => {
@@ -65,7 +71,7 @@ const Dropdown = (props: any) => {
                               ? ""
                               : `since=${props.time}`
                           }&spoken_language_code=${item.urlParam}`
-                        : props.type === "date"
+                        : props.type.includes("date")
                         ? `?${
                             !props.spokenLang ||
                             props.spokenLang.includes("Any")
@@ -78,7 +84,7 @@ const Dropdown = (props: any) => {
                               ? `/developers${
                                   !props.proLang ||
                                   props.proLang.includes("Any")
-                                    ? ""
+                                    ? `/${item}`
                                     : `/${item}`
                                 }?${
                                   !props.time || props.time.includes("Any")
