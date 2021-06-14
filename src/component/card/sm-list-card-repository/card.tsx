@@ -1,4 +1,5 @@
 import { useLocation } from "react-router";
+import { getTruncatedText } from "../../../utility/stringMgt";
 import Button from "../../button/button";
 import "./card.css";
 
@@ -30,9 +31,9 @@ const ListCardRepository = (props: any) => {
                 </svg>
               </span>
               <span data-view-component="true" className="text-normal">
-                {props?.username}/
+                {getTruncatedText(props?.username, 15)}/
               </span>
-              <span>{props?.repositoryName}</span>
+              <span>{getTruncatedText(props?.repositoryName, 15)}</span>
             </h1>
           </a>
 

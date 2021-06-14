@@ -33,6 +33,7 @@ const Dropdown = (props: any) => {
   return (
     <>
       <details className="details-option" open={is_dialogue_open}>
+        {is_dialogue_open}
         <summary className=" btn-link" role="button">
           <span className="txt-inner-opt">{props.headerText || "Any"}:</span>
           <span className="text-bold">{props.boldText}</span>
