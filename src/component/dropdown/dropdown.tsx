@@ -8,13 +8,12 @@ const Dropdown = (props: any) => {
   const [is_dialogue_open, setIs_dialogue_open] = useState(false);
 
   useEffect(() => {
-    setfilteredArray([...props.data]);
+    try {
+      setfilteredArray(props.data ? [...props.data] : []);
+    } catch (err) {
+      throw new Error(err);
+    }
   }, [props.data]);
-  
-
-
-
-
 
   // handles the search input operation on dropdown
   const handleInput = (e: any) => {
@@ -50,9 +49,10 @@ const Dropdown = (props: any) => {
               />
             </div>
           )}
-          <div className="select-menu-list" onClick={()=>
-            setIs_dialogue_open(()=>!is_dialogue_open)
-            }>
+          <div
+            className="select-menu-list"
+            onClick={() => setIs_dialogue_open(false)}
+          >
             {filteredArray?.length ? (
               filteredArray.map((item: any, index: any) => {
                 return (
