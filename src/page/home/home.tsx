@@ -9,7 +9,7 @@ import "./home.css";
 import { useEffect } from "react";
 
 import { Ideveloper, Ipopular_repository, IqueryReactOption } from "./home.td";
-import { getDevelopers, getReposirories } from "../../utility/github";
+import { getResources } from "../../utility/github";
 
 const Home = ({ match }: any) => {
   const queryCli = useQueryClient();
@@ -25,8 +25,8 @@ const Home = ({ match }: any) => {
       const { data } = await request<Ideveloper<Ipopular_repository>[]>(
         "GET",
         match.path.includes(DEVELOPERS)
-          ? getDevelopers(match, query)
-          : getReposirories(match, query),
+          ? getResources("developers", match, query)
+          : getResources("repositories", match, query),
         ""
       );
       return data;
@@ -53,8 +53,8 @@ const Home = ({ match }: any) => {
         const { data } = await request(
           "GET",
           match.path.includes(DEVELOPERS)
-            ? getDevelopers(match, query)
-            : getReposirories(match, query),
+            ? getResources("developers", match, query)
+            : getResources("repositories", match, query),
           ""
         );
 
