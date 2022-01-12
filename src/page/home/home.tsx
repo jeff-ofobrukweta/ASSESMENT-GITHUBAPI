@@ -62,7 +62,7 @@ const Home = ({ match }: any) => {
       };
 
       getRouteFromApi();
-    } catch (err) {
+    } catch (err: any) {
       throw new Error(err);
     }
   }, [match?.url, lang, since]);
